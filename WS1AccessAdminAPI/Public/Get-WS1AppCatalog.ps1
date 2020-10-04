@@ -37,14 +37,14 @@ function Get-WS1AppCatalog {
             Accept = 'application/vnd.vmware.horizon.manager.catalog.item.list+json'
         }
         $Body = $Filter | ConvertTo-Json
-        Write-Verbose "Body(Filter): $Body"
+        Write-Debug "Body(Filter): $Body"
         $IRMParams = @{
             Method = 'POST'
             Headers = $Header
             Body = $Body
             URI = $URI
         }
-        Write-Verbose $($IRMParams | out-string)
+        Write-Debug $($IRMParams | out-string)
         $AppCatalog =  Invoke-RestMethod @IRMParams
         If($AppCatalog.items){
             Return $AppCatalog

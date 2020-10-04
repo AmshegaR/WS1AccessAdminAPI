@@ -38,7 +38,7 @@ function Get-WS1AccessToken {
         Body = $Body
         URI = $URI
     }
-    Write-Verbose $($IRMParams | out-string)
+    Write-Debug $($IRMParams | out-string)
     $Token = Invoke-RestMethod @IRMParams
     $Token | Add-Member -NotePropertyMembers @{Tenant="$($Tenant)"}
     Return $Token
