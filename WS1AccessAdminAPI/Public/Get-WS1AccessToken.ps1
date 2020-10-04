@@ -43,5 +43,3 @@ function Get-WS1AccessToken {
     $Token | Add-Member -NotePropertyMembers @{Tenant="$($Tenant)"}
     Return $Token
 }
-
-$Token = Get-WS1AccessToken -Tenant "td-innasitkilove-442e9.vidmpreview.com" -ClientID "API-Admin" -ClientSecret "oFnfNbLYA3wNwOQzeRxxgEMLiXgOI7ViWqZR1ejEUZh4i0kz"
