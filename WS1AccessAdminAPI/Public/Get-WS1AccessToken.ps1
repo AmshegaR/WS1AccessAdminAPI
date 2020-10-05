@@ -1,6 +1,7 @@
 <#
 .SYNOPSIS
 Obtain an OAuth 2.0 access token.
+Source: https://github.com/vmware/idm/wiki/Integrating-Client-Credentials-app-with-OAuth2#getting-your-client-credentials-access-token
 
 .PARAMETER Tenant
 Mandatory: WS1 Access Tenant URL
