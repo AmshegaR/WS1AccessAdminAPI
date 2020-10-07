@@ -22,7 +22,8 @@ App Registration: One time only
 
 Place the *WS1AccessAdminAPI* module folder to:  
 `$home\Documents\WindowsPowerShell\Modules` OR `$pshome\Modules` (Win&Linux)  
-@*Doc*: <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-7#how-to-install-a-module>  
+
+@Docs: <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-7#how-to-install-a-module>  
 
 ```Powershell
 Import-Module -Name WS1AccessAdminAPI

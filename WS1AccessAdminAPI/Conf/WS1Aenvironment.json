@@ -7,6 +7,6 @@
     "tenant01":  {
 				"tenant":"tenant01.example.com",
 				"clientID":"Example01", 
-				"secret":"qwerty"
+				"secret":"qwerty123"
             }
 }
