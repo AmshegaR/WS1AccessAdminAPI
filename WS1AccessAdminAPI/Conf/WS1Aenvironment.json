@@ -2,7 +2,7 @@
     "tenant00":  {
 				"tenant":"tenant00.example.com",
 				"clientID":"Example00", 
-				"secret":"abc"
+				"secret":"abc123"
              },
     "tenant01":  {
 				"tenant":"tenant01.example.com",
