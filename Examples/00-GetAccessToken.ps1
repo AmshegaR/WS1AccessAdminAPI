@@ -1,9 +1,6 @@
 Import-Module WS1AccessAdminAPI\WS1AccessAdminAPI -Force
 $WS1Aconfig = Get-Content C:\temp\environment.json | ConvertFrom-Json
-
-If(-not $Token){
-        $Token = Get-WS1AccessToken -Tenant $WS1Aconfig.'VIDM-Preview'.tenant -ClientID $WS1Aconfig.'VIDM-Preview'.clientID -ClientSecret $WS1Aconfig.'VIDM-Preview'.secret
-}
+If(-not $Token){ $Token = Get-WS1AccessToken -Tenant $WS1Aconfig.A00.tenant -ClientID $WS1Aconfig.A00.clientID -ClientSecret $WS1Aconfig.A00.secret }
 
 
 <#

@@ -14,7 +14,6 @@ Mandatory: Client Shared secret
 
 .EXAMPLE
 Get-ws1aAccessToken -Tenant "VIDMTenant.Domain.com" -ClientID "API-Admin" -ClientSecret "QWrfdghGTgt4GGJj5Hh"
-}
 #>
 function Get-WS1AccessToken {
     [cmdletbinding()]
