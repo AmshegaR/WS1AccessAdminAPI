@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-Get all users and groups assigned to na application.
+Get a list of the users belonging to a given role.
 
 .PARAMETER Tenant
 Mandatory: WS1 Access Tenant URL
