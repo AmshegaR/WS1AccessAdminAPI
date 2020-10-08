@@ -71,9 +71,9 @@ function Get-WS1ReportByTimeSpam{
             Method = 'Get'
             Headers = $Header
             URI = $URI
-            #Body = $Body
+            Body = $Body
         }   
-        $report =  Invoke-RestMethod @IRMParams -Body $Body
+        $report =  Invoke-RestMethod @IRMParams 
         If($report){
             Return $report
         }
