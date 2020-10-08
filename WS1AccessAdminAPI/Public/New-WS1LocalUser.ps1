@@ -60,19 +60,21 @@ function New-WS1LocalUser {
        [Parameter(Mandatory=$true)][string]$Token,
        [Parameter(Mandatory=$true)][string]$UserName,
        [Parameter(Mandatory=$true)][mailaddress]$UserEmail,
-       [Parameter(Mandatory=$true)][string]$UserPass,
        [Parameter(Mandatory=$true)][string]$givenName,
        [Parameter(Mandatory=$true)][string]$FamilyName,
-       [string]$DirectoryName = $false,
+       [string]$UserPass,
+       [string]$DirectoryName,
        [bool]$SendMail = $true
     )
 
     $UserProps = @{
-        emails   = $UserEmail
+        emails   = $UserEmail.Address
         name     = @{familyName=$FamilyName; givenName=$givenName}
-        password = $UserPass
         schemas  = @("urn:scim:schemas:core:1.0")
         userName = $UserName
+    }
+    If($UserPass){
+        $UserProps.Add("password", $UserPass) 
     }
     If($DirectoryName){
         $Schema = "urn:scim:schemas:extension:workspace:1.0"

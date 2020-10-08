@@ -1,16 +1,20 @@
 {
     "emails": [
         {
-            "value": "Agent007@mail.com"
+            "value": "jdoe@my.local"
         }
     ],
     "name": {
-        "familyName": "Bond",
-        "givenName": "James"
+        "familyName": "lastName 1",
+        "givenName": "firstName 1"
     },
-    "password": "S@cr3tPass007",
+    "password": "123456",
     "schemas": [
-        "urn:scim:schemas:core:1.0"
+        "urn:scim:schemas:core:1.0",
+        "urn:scim:schemas:extension:workspace:1.0"
     ],
-    "userName": "Agent007"
+    "urn:scim:schemas:extension:workspace:1.0": {
+        "domain": "my.local"
+    },
+    "userName": "testUserLocalDirectory"
 }

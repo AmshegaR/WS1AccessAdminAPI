@@ -1,19 +1,22 @@
 
 # WS1AccessAdminAPI
 
-PowerShell module to interact with VMware WorkSpace One Access API.
+PowerShell module to interact with VMware WorkSpace One Access API.  
+*VMware Workspace one access (WS1Access) or VMware Identiry Manager (VIDM)*  
 
 ## WS1Access Configuration
 
 App Registration: One time only  
 *create a service client on WS1Access*:  
 
-`Go to Catalog -> Settings.`  
-`Click on the "Remote App Access" -> Create Client.`  
-`Select Service Client Token as the Access Type.`  
-`Enter a client ID.`  
-`Click Add.`  
-`Create Service Client.`  
+1. Log into the Workspace ONE Access console.
+2. Click the arrow on the **Catalog** tab and select **Settings**.
+3. Click **Remote App Access** in the left pane.
+4. Click **Create Client**.
+5. For **Access Type**, select **Service Client Token**.
+6. For **Client ID**, enter an ID, for example, APIAccess.
+7. Expand the **Advanced** section.
+8. Click **Generate Shared Secret**.
 
 ![alt text](https://raw.githubusercontent.com/wiki/vmware/idm/images/OAuth2CredClient.png)  
 @*Source*: <https://github.com/vmware/idm/wiki/Integrating-Client-Credentials-app-with-OAuth2#app-registration-one-time-only>  
@@ -37,3 +40,4 @@ Get-Command -Module WS1AccessAdminAPI
 
 If you have any idea or suggestion - please add a github issue.  
 Contribution is welcome.  
+WS1Access API has poor documentation, plenty of the functionality was collected by pieces from external resources (e.g forums, repos, Admin UI etc).  
