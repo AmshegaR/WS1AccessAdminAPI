@@ -1,0 +1,16 @@
+{
+    "emails": [
+        {
+            "value": "Agent007@mail.com"
+        }
+    ],
+    "name": {
+        "familyName": "Bond",
+        "givenName": "James"
+    },
+    "password": "S@cr3tPass007",
+    "schemas": [
+        "urn:scim:schemas:core:1.0"
+    ],
+    "userName": "Agent007"
+}
