@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "0227834d-d692-4d94-93bf-7edeb38f03ba",
+		"name": "CustomAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SyncDirectory",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.vmware.horizon.manager.connector.management.directory.sync.profile.sync+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ignoreSafeguards\":\"true\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/SAAS/jersey/manager/api/connectormanagement/direcctoryconfigs/{{directoryID}}/syncprofile/sync",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"SAAS",
+						"jersey",
+						"manager",
+						"api",
+						"connectormanagement",
+						"direcctoryconfigs",
+						"{{directoryID}}",
+						"syncprofile",
+						"sync"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ExportCatalogApp",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "327dd50f-0a8f-4c5b-9e21-0921bb3ad587",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/zip",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,he;q=0.8,ru;q=0.7",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/SAAS/jersey/manager/api/catalogitems/6854178e-f6da-4e4c-b813-a70ed872e31e?useAbsoluteUrl=true&_t=1602250857828&locale=en",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"SAAS",
+						"jersey",
+						"manager",
+						"api",
+						"catalogitems",
+						"6854178e-f6da-4e4c-b813-a70ed872e31e"
+					],
+					"query": [
+						{
+							"key": "useAbsoluteUrl",
+							"value": "true"
+						},
+						{
+							"key": "_t",
+							"value": "1602250857828"
+						},
+						{
+							"key": "locale",
+							"value": "en"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AllowedRedirects",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/SAAS/jersey/manager/api/authsettings/allowedredirects",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"SAAS",
+						"jersey",
+						"manager",
+						"api",
+						"authsettings",
+						"allowedredirects"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessToken",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJleHAiOjE2MDIyNjgyMjAsImlhdCI6MTYwMjI1NzQyMCwic3ViIjoiNzg2OGUwYzItZDg4NC00ODAyLWEyYjItN2M3MTliMjUxMmZhIiwiYXV0aF90aW1lIjoxNjAyMjU3NDIwLCJzY3AiOiJhZG1pbiIsImF1ZCI6Imh0dHBzOi8vdGQtaW5uYXNpdGtpbG92ZS00NDJlOS52aWRtcHJldmlldy5jb20vU0FBUy9hdXRoL29hdXRodG9rZW4iLCJ1c2VyX2lkIjoiODkxMDEwMiIsImlzcyI6Imh0dHBzOi8vdGQtaW5uYXNpdGtpbG92ZS00NDJlOS52aWRtcHJldmlldy5jb20vU0FBUy9hdXRoIiwicnVsZXMiOnsiZXhwaXJ5IjoxNjAyMjU5MjIwLCJsaW5rIjoiaHR0cHM6Ly90ZC1pbm5hc2l0a2lsb3ZlLTQ0MmU5LnZpZG1wcmV2aWV3LmNvbS9hY3MvcnVsZXMvbWUiLCJydWxlcyI6W3sicmVzb3VyY2VzIjpbIioiXSwiYWN0aW9ucyI6WyIqIl0sImNvbmRpdGlvbnMiOm51bGwsImFkdmljZSI6bnVsbH1dfSwicGlkIjoiYmUwMmNlYTEtODBiZC00ZGE3LTg2NGEtNjFmMzcyMGRlYTQzIiwicHJuX3R5cGUiOiJTRVJWSUNFIiwicHJuIjoiQVBJLUFkbWluQFRELUlOTkFTSVRLSUxPVkUtNDQyRTkiLCJqdGkiOiJiZTAyY2VhMS04MGJkLTRkYTctODY0YS02MWYzNzIwZGVhNDMiLCJjaWQiOiJBUEktQWRtaW4ifQ.czFRm2UFb41Jmd5LVCvQ5TPa0Ya37O7nW2PrNow_mg7g3-FJ_JEBloKzr9FGi1JtYxByeW4CbjPT-INdgZN34p2BL1YTkS1Qgaq90hGdTZUx0S7yzN9-xTa7wviCIrFspbHXTgUbPJgvcPMDlaRk7HDPJ4nitINtWEx-nAx-N1o",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a0c97da1-4b07-48fa-9114-4b885199d3b5",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "0932645b-f680-4165-8da7-c22dd344c2f6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "a81d78ac-7fa2-45b7-b9cf-4e2156842fc9",
+			"key": "baseUrl",
+			"value": "https://localhost:443"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

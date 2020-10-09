@@ -1,3 +1,6 @@
+Get-Help Start-WS1DirectorySync
+Get-Help Start-WS1DirectorySync -Examples
+
 #region Start manual sync directory
 
 $WS1Directory = Get-WS1DirectoryConfigs -Tenant $Token.Tenant -Token $Token.access_token

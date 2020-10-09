@@ -1,4 +1,7 @@
-#Get directories list
+Get-Help Get-WS1DirectoryConfigs
+Get-Help Get-WS1DirectoryConfigs -Examples
+
+#Get directory list
 $WS1Directory = Get-WS1DirectoryConfigs -Tenant $Token.Tenant -Token $Token.access_token
 ($WS1Directory.items | Format-List * | Out-String)
 

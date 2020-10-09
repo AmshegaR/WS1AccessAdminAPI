@@ -1,4 +1,3 @@
-#Interact with WS1Access SCIM API
 Get-Help New-WS1LocalUser
 Get-Help New-WS1LocalUser -Examples
 
