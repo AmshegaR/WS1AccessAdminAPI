@@ -10,6 +10,8 @@ Export-WS1AppCatalog -Tenant "example.vmware.com" -Token $Token -AppUUID "xxxx-f
 #region Export single application using name
 
 $TestAppUUID = Get-WS1AppCatalog -Tenant $Token.Tenant -Token $Token.access_token -Filter @{ "nameFilter" = "board-mvc-saml" }
+#OR 
+$TestAppUUID = Get-WS1AppCatalog -Filter @{ "nameFilter" = "board-mvc-saml" }
 Export-WS1AppCatalog -Tenant $Token.Tenant -Token $Token.access_token -AppUUID $TestAppUUID.items.uuid -SaveTo "C:\Backup\$($TestAppUUID.items.name).zip"
 
 #endregion

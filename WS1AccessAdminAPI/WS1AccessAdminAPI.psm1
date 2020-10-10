@@ -15,6 +15,13 @@
             Write-Error -Message "Failed to import function $($import.fullname): $_"
         }
     }
+$WS1SessionToken = @{
+    scope = "Admin"
+    access_token = "Null"
+    token_type = "Bearer"
+    expires_in = 0
+    refresh_token = "Null"
+    Tenant = "example.vmware.com"
+}
 
-Export-ModuleMember -Function $public.Basename
-
+Export-ModuleMember -Function $public.Basename -Variable (Get-Variable -Name WS1SessionToken).name

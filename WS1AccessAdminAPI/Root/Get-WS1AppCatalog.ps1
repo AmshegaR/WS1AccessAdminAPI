@@ -5,11 +5,11 @@ Get a Catalog Application information using Hash as a sorting filter.
 .PARAMETER Tenant
 Mandatory: WS1 Access Tenant URL
 
-.PARAMETER ClientID
-Mandatory: Client Identifier
+.PARAMETER Token
+Mandatory: oAuth2 AccessToken
 
-.PARAMETER ClientSecret
-Mandatory: Client Shared secret
+.PARAMETER Filter
+Mandatory: HashTable format filter
 
 @{
     "nameFilter" = "Application Name"

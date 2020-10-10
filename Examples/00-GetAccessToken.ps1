@@ -1,5 +1,7 @@
 #Import WS1AccessAdminAPI Module
 Import-Module WS1AccessAdminAPI -Force
+Get-Command -Module WS1AccessAdminAPI
+
 Get-Help Get-WS1AccessToken
 Get-Help Get-WS1AccessToken -Examples
 
