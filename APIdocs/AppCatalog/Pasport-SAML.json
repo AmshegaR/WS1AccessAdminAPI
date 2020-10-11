@@ -1,0 +1,84 @@
+{
+  "uuid" : "a4d0008b-92e1-4fdf-81af-e2ced7eb1a1a",
+  "name" : "Pasport-SAML",
+  "description" : "רוסלן מדוב",
+  "provisioningAdapter" : null,
+  "icon" : null,
+  "iconURL" : null,
+  "packageVersion" : "1.0",
+  "productVersion" : null,
+  "authInfo" : {
+    "type" : "Saml20",
+    "recipientName" : "https://{HOST}/auth/callback",
+    "audience" : "https://{HOST}",
+    "validityTimeSeconds" : 200,
+    "signingCert" : "-----BEGIN CERTIFICATE-----\n\n-----END CERTIFICATE-----",
+    "parameters" : [ ],
+    "attributes" : [ {
+      "name" : "uid",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "uid",
+      "value" : "${user.userName}"
+    }, {
+      "name" : "cn",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "cn",
+      "value" : "${user.firstName} ${user.lastName}"
+    }, {
+      "name" : "email",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "email",
+      "value" : "${user.email}"
+    }, {
+      "name" : "givenName",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "givenName",
+      "value" : "${user.firstName}"
+    }, {
+      "name" : "sn",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "sn",
+      "value" : "${user.lastName}"
+    }, {
+      "name" : "Group",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "Group",
+      "value" : "${groupNames}"
+    } ],
+    "nameIdFormat" : "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+    "nameId" : "${user.userName}",
+    "nameIdClaimTransformation" : null,
+    "assertionConsumerServiceUrl" : "https://{HOST}/auth/callback",
+    "signatureAlgorithm" : "SHA1withRSA",
+    "digestAlgorithm" : "SHA1",
+    "claimTransformations" : null,
+    "configureAs" : "manual",
+    "metadata" : null,
+    "metadataUrl" : null,
+    "includeDestination" : true,
+    "signAssertion" : false,
+    "signResponse" : true,
+    "encryptAssertion" : false,
+    "includeSigningCert" : false,
+    "loginRedirectionUrl" : null,
+    "relayState" : null,
+    "relayStateParamName" : null,
+    "encodeRelayStateValueFromParam" : false,
+    "encryptionCerts" : null,
+    "allowApiAccess" : false,
+    "credentialCheckType" : "PerAppPassword",
+    "proxyCount" : null,
+    "returnFailureResponse" : false,
+    "deviceSsoResponse" : false,
+    "enableForceAuthnRequest" : false
+  },
+  "iconHash" : null,
+  "isMandatory" : false,
+  "resourceConfiguration" : {
+    "applicationAttributeMap" : null,
+    "parameterValues" : { }
+  },
+  "isInternal" : false,
+  "isVisibleInCatalog" : true,
+  "resourceSyncProfileId" : null
+}

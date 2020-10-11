@@ -1,0 +1,69 @@
+{
+  "uuid" : "2357fbb9-29c0-4605-91cc-90372022cf26",
+  "name" : "Dynatrace",
+  "description" : "Dynatrace",
+  "provisioningAdapter" : null,
+  "icon" : null,
+  "iconURL" : null,
+  "packageVersion" : "1.0",
+  "productVersion" : null,
+  "authInfo" : {
+    "type" : "Saml20",
+    "recipientName" : "https://{HOST}/login",
+    "audience" : "https://{HOST}",
+    "validityTimeSeconds" : 200,
+    "signingCert" : "-----BEGIN CERTIFICATE-----\n=\n-----END CERTIFICATE-----",
+    "parameters" : [ ],
+    "attributes" : [ {
+      "name" : "givenName",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "givenName",
+      "value" : "${user.firstName}"
+    }, {
+      "name" : "sn",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "sn",
+      "value" : "${user.lastName}"
+    }, {
+      "name" : "email",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "email",
+      "value" : "${user.email}"
+    } ],
+    "nameIdFormat" : "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+    "nameId" : "${user.userName}",
+    "nameIdClaimTransformation" : null,
+    "assertionConsumerServiceUrl" : "https://{HOST}/login",
+    "signatureAlgorithm" : "SHA256withRSA",
+    "digestAlgorithm" : "SHA256",
+    "claimTransformations" : null,
+    "configureAs" : "manual",
+    "metadata" : null,
+    "metadataUrl" : null,
+    "includeDestination" : true,
+    "signAssertion" : true,
+    "signResponse" : true,
+    "encryptAssertion" : false,
+    "includeSigningCert" : false,
+    "loginRedirectionUrl" : null,
+    "relayState" : null,
+    "relayStateParamName" : null,
+    "encodeRelayStateValueFromParam" : false,
+    "encryptionCerts" : [ "-----BEGIN CERTIFICATE-----\n=\n-----END CERTIFICATE-----" ],
+    "allowApiAccess" : false,
+    "credentialCheckType" : "PerAppPassword",
+    "proxyCount" : null,
+    "returnFailureResponse" : false,
+    "deviceSsoResponse" : false,
+    "enableForceAuthnRequest" : false
+  },
+  "iconHash" : null,
+  "isMandatory" : false,
+  "resourceConfiguration" : {
+    "applicationAttributeMap" : null,
+    "parameterValues" : { }
+  },
+  "isInternal" : false,
+  "isVisibleInCatalog" : true,
+  "resourceSyncProfileId" : null
+}

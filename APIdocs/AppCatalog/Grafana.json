@@ -1,0 +1,27 @@
+{
+  "uuid" : "01b16d1b-ca07-4421-a6ed-49b6c3a3179d",
+  "name" : "Grafana",
+  "description" : "Grafana",
+  "provisioningAdapter" : null,
+  "icon" : null,
+  "iconURL" : null,
+  "packageVersion" : "1.0",
+  "productVersion" : null,
+  "authInfo" : {
+    "type" : "AnyAppAuthInfo",
+    "subType" : "oidcapptype",
+    "values" : {
+      "clientId" : [ "grafana" ],
+      "targetUrl" : [ "https://{HOST}" ]
+    }
+  },
+  "iconHash" : null,
+  "isMandatory" : false,
+  "resourceConfiguration" : {
+    "applicationAttributeMap" : null,
+    "parameterValues" : { }
+  },
+  "isInternal" : false,
+  "isVisibleInCatalog" : true,
+  "resourceSyncProfileId" : null
+}

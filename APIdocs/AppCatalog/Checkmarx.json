@@ -1,0 +1,99 @@
+{
+  "uuid" : "87abb7bc-c55f-4643-af0e-e2c86a308743",
+  "name" : "Checkmarx",
+  "description" : "Checkmarx",
+  "provisioningAdapter" : null,
+  "icon" : null,
+  "iconURL" : null,
+  "packageVersion" : "1.0",
+  "productVersion" : null,
+  "authInfo" : {
+    "type" : "Saml20",
+    "recipientName" : "https://{HOST}/CxRestAPI/auth/identity/samlAcs",
+    "audience" : "https://{HOST}",
+    "validityTimeSeconds" : 200,
+    "signingCert" : "-----BEGIN CERTIFICATE-----\n=\n-----END CERTIFICATE-----",
+    "parameters" : [ ],
+    "attributes" : [ {
+      "name" : "First_Name",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "[xmlns:md=\"urn:oasis:names:tc:SAML:2.0:metadata\"]",
+      "value" : "${user.firstName}"
+    }, {
+      "name" : "Last_Name",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "[xmlns:md=\"urn:oasis:names:tc:SAML:2.0:metadata\"]",
+      "value" : "${user.lastName}"
+    }, {
+      "name" : "Email",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "[xmlns:md=\"urn:oasis:names:tc:SAML:2.0:metadata\"]",
+      "value" : "${user.email}"
+    }, {
+      "name" : "Job",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "[xmlns:md=\"urn:oasis:names:tc:SAML:2.0:metadata\"]",
+      "value" : "JobName"
+    }, {
+      "name" : "Phone",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "[xmlns:md=\"urn:oasis:names:tc:SAML:2.0:metadata\"]",
+      "value" : "${user.phone}"
+    }, {
+      "name" : "Cell_Phone",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "[xmlns:md=\"urn:oasis:names:tc:SAML:2.0:metadata\"]",
+      "value" : "${user.phone}"
+    }, {
+      "name" : "Language",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "[xmlns:md=\"urn:oasis:names:tc:SAML:2.0:metadata\"]",
+      "value" : "English (United States)"
+    }, {
+      "name" : "Team",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "[xmlns:md=\"urn:oasis:names:tc:SAML:2.0:metadata\"]",
+      "value" : "/CxServer/SP/Company/build"
+    }, {
+      "name" : "Role",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "[xmlns:md=\"urn:oasis:names:tc:SAML:2.0:metadata\"]",
+      "value" : "Corp_Role"
+    } ],
+    "nameIdFormat" : "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+    "nameId" : "${user.userName}",
+    "nameIdClaimTransformation" : null,
+    "assertionConsumerServiceUrl" : "https://{HOST}/CxRestAPI/auth/identity/samlAcs",
+    "signatureAlgorithm" : "SHA256withRSA",
+    "digestAlgorithm" : "SHA256",
+    "claimTransformations" : null,
+    "configureAs" : "manual",
+    "metadata" : null,
+    "metadataUrl" : null,
+    "includeDestination" : true,
+    "signAssertion" : true,
+    "signResponse" : true,
+    "encryptAssertion" : false,
+    "includeSigningCert" : false,
+    "loginRedirectionUrl" : "",
+    "relayState" : "",
+    "relayStateParamName" : null,
+    "encodeRelayStateValueFromParam" : false,
+    "encryptionCerts" : [ "-----BEGIN CERTIFICATE-----\n=\n-----END CERTIFICATE-----" ],
+    "allowApiAccess" : false,
+    "credentialCheckType" : "PerAppPassword",
+    "proxyCount" : null,
+    "returnFailureResponse" : true,
+    "deviceSsoResponse" : false,
+    "enableForceAuthnRequest" : false
+  },
+  "iconHash" : null,
+  "isMandatory" : false,
+  "resourceConfiguration" : {
+    "applicationAttributeMap" : null,
+    "parameterValues" : { }
+  },
+  "isInternal" : false,
+  "isVisibleInCatalog" : true,
+  "resourceSyncProfileId" : null
+}

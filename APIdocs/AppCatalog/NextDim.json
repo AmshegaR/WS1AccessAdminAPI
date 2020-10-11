@@ -1,0 +1,27 @@
+{
+  "uuid" : "5c304b62-1923-4de0-98b9-da5a439bd3e4",
+  "name" : "NextDim",
+  "description" : "NextDim",
+  "provisioningAdapter" : null,
+  "icon" : "NextDim.icon",
+  "iconURL" : null,
+  "packageVersion" : "1.0",
+  "productVersion" : null,
+  "authInfo" : {
+    "type" : "AnyAppAuthInfo",
+    "subType" : "oidcapptype",
+    "values" : {
+      "clientId" : [ "NextDim" ],
+      "targetUrl" : [ "https://{HOST}" ]
+    }
+  },
+  "iconHash" : null,
+  "isMandatory" : false,
+  "resourceConfiguration" : {
+    "applicationAttributeMap" : null,
+    "parameterValues" : { }
+  },
+  "isInternal" : false,
+  "isVisibleInCatalog" : true,
+  "resourceSyncProfileId" : null
+}

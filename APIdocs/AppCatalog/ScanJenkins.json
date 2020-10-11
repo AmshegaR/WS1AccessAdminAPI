@@ -1,0 +1,69 @@
+{
+  "uuid" : "994c621f-9147-4f0a-b79c-aab85f8a9a72",
+  "name" : "ScanJenkins",
+  "description" : "ScanJenkins",
+  "provisioningAdapter" : null,
+  "icon" : null,
+  "iconURL" : null,
+  "packageVersion" : "1.0",
+  "productVersion" : null,
+  "authInfo" : {
+    "type" : "Saml20",
+    "recipientName" : "https://scanjenkins.{HOST}/securityRealm/finishLogin",
+    "audience" : "https://scanjenkins.{HOST}",
+    "validityTimeSeconds" : 200,
+    "signingCert" : "-----BEGIN CERTIFICATE-----\n=\n-----END CERTIFICATE-----",
+    "parameters" : [ ],
+    "attributes" : [ {
+      "name" : "username",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "username",
+      "value" : "${user.userName}"
+    }, {
+      "name" : "email",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "email",
+      "value" : "${user.email}"
+    }, {
+      "name" : "Groups",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "Groups",
+      "value" : "${groupNames}"
+    } ],
+    "nameIdFormat" : "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+    "nameId" : "${user.userName}",
+    "nameIdClaimTransformation" : null,
+    "assertionConsumerServiceUrl" : "https://scanjenkins.{HOST}/securityRealm/finishLogin",
+    "signatureAlgorithm" : "SHA256withRSA",
+    "digestAlgorithm" : "SHA256",
+    "claimTransformations" : null,
+    "configureAs" : "manual",
+    "metadata" : null,
+    "metadataUrl" : null,
+    "includeDestination" : true,
+    "signAssertion" : true,
+    "signResponse" : true,
+    "encryptAssertion" : false,
+    "includeSigningCert" : false,
+    "loginRedirectionUrl" : null,
+    "relayState" : null,
+    "relayStateParamName" : null,
+    "encodeRelayStateValueFromParam" : false,
+    "encryptionCerts" : null,
+    "allowApiAccess" : false,
+    "credentialCheckType" : "PerAppPassword",
+    "proxyCount" : null,
+    "returnFailureResponse" : false,
+    "deviceSsoResponse" : false,
+    "enableForceAuthnRequest" : false
+  },
+  "iconHash" : null,
+  "isMandatory" : false,
+  "resourceConfiguration" : {
+    "applicationAttributeMap" : null,
+    "parameterValues" : { }
+  },
+  "isInternal" : false,
+  "isVisibleInCatalog" : true,
+  "resourceSyncProfileId" : null
+}

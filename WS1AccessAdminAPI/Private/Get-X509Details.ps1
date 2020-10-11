@@ -39,12 +39,6 @@ PS> Get-X509Details('@
                     ........URpc0T9DzsUUfoHfbQ==
                     -----END CERTIFICATE-----
                     '@)
-
-.LINK
-
-https://blog.darrenjrobinson.com
-https://blog.darrenjrobinson.com/jwtdetails-powershell-module-for-decoding-jwt-access-tokens-with-readable-token-expiry-time/ 
-
 #>
 function Get-X509Details {
     [cmdletbinding()]

@@ -1,0 +1,79 @@
+{
+  "uuid" : "d0635b34-3188-41d5-8d32-6661789251b0",
+  "name" : "AnsibleTower",
+  "description" : "AnsibleTower",
+  "provisioningAdapter" : null,
+  "icon" : null,
+  "iconURL" : null,
+  "packageVersion" : "1.0",
+  "productVersion" : null,
+  "authInfo" : {
+    "type" : "Saml20",
+    "recipientName" : "https://{HOST}/sso/complete/saml",
+    "audience" : "https://{HOST}",
+    "validityTimeSeconds" : 200,
+    "signingCert" : "-----BEGIN CERTIFICATE-----\=\n-----END CERTIFICATE-----",
+    "parameters" : [ ],
+    "attributes" : [ {
+      "name" : "attr_user_permanent_id",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "attr_user_permanent_id",
+      "value" : "${user.userName}"
+    }, {
+      "name" : "attr_first_name",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "attr_first_name",
+      "value" : "${user.firstName}"
+    }, {
+      "name" : "attr_last_name",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "attr_last_name",
+      "value" : "${user.lastName}"
+    }, {
+      "name" : "attr_username",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "attr_username",
+      "value" : "${user.email}"
+    }, {
+      "name" : "attr_email",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "attr_email",
+      "value" : "${user.email}"
+    } ],
+    "nameIdFormat" : "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+    "nameId" : "${user.userName}",
+    "nameIdClaimTransformation" : null,
+    "assertionConsumerServiceUrl" : "https://{HOST}/sso/complete/saml",
+    "signatureAlgorithm" : "SHA256withRSA",
+    "digestAlgorithm" : "SHA256",
+    "claimTransformations" : null,
+    "configureAs" : "manual",
+    "metadata" : null,
+    "metadataUrl" : null,
+    "includeDestination" : true,
+    "signAssertion" : true,
+    "signResponse" : true,
+    "encryptAssertion" : false,
+    "includeSigningCert" : false,
+    "loginRedirectionUrl" : null,
+    "relayState" : "",
+    "relayStateParamName" : null,
+    "encodeRelayStateValueFromParam" : false,
+    "encryptionCerts" : null,
+    "allowApiAccess" : false,
+    "credentialCheckType" : "PerAppPassword",
+    "proxyCount" : null,
+    "returnFailureResponse" : false,
+    "deviceSsoResponse" : false,
+    "enableForceAuthnRequest" : false
+  },
+  "iconHash" : null,
+  "isMandatory" : false,
+  "resourceConfiguration" : {
+    "applicationAttributeMap" : null,
+    "parameterValues" : { }
+  },
+  "isInternal" : false,
+  "isVisibleInCatalog" : true,
+  "resourceSyncProfileId" : null
+}

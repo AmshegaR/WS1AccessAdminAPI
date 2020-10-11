@@ -1,0 +1,79 @@
+{
+  "uuid" : "39f2571b-4014-4194-ae5f-8db08b574fb4",
+  "name" : "GitLab",
+  "description" : "GitLab",
+  "provisioningAdapter" : null,
+  "icon" : "GitLab.icon",
+  "iconURL" : null,
+  "packageVersion" : "1.0",
+  "productVersion" : null,
+  "authInfo" : {
+    "type" : "Saml20",
+    "recipientName" : "https://{HOST}/users/auth/saml/callback",
+    "audience" : "{HOST}",
+    "validityTimeSeconds" : 200,
+    "signingCert" : "-----BEGIN CERTIFICATE-----\n=\n-----END CERTIFICATE-----",
+    "parameters" : [ ],
+    "attributes" : [ {
+      "name" : "email",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "[xmlns:md=\"urn:oasis:names:tc:SAML:2.0:metadata\"]",
+      "value" : "${user.email}"
+    }, {
+      "name" : "name",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "[xmlns:md=\"urn:oasis:names:tc:SAML:2.0:metadata\"]",
+      "value" : "${user.mailNickname}"
+    }, {
+      "name" : "first_name",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "[xmlns:md=\"urn:oasis:names:tc:SAML:2.0:metadata\"]",
+      "value" : "${user.firstName}"
+    }, {
+      "name" : "last_name",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "[xmlns:md=\"urn:oasis:names:tc:SAML:2.0:metadata\"]",
+      "value" : "${user.lastName}"
+    }, {
+      "name" : "groups",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "[xmlns:md=\"urn:oasis:names:tc:SAML:2.0:metadata\"]",
+      "value" : "${groupNames}"
+    } ],
+    "nameIdFormat" : "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent",
+    "nameId" : "${user.userName}",
+    "nameIdClaimTransformation" : null,
+    "assertionConsumerServiceUrl" : "https://{HOST}/users/auth/saml/callback",
+    "signatureAlgorithm" : "SHA256withRSA",
+    "digestAlgorithm" : "SHA256",
+    "claimTransformations" : null,
+    "configureAs" : "manual",
+    "metadata" : null,
+    "metadataUrl" : null,
+    "includeDestination" : true,
+    "signAssertion" : false,
+    "signResponse" : true,
+    "encryptAssertion" : false,
+    "includeSigningCert" : false,
+    "loginRedirectionUrl" : null,
+    "relayState" : null,
+    "relayStateParamName" : null,
+    "encodeRelayStateValueFromParam" : false,
+    "encryptionCerts" : null,
+    "allowApiAccess" : false,
+    "credentialCheckType" : "PerAppPassword",
+    "proxyCount" : null,
+    "returnFailureResponse" : false,
+    "deviceSsoResponse" : false,
+    "enableForceAuthnRequest" : false
+  },
+  "iconHash" : null,
+  "isMandatory" : false,
+  "resourceConfiguration" : {
+    "applicationAttributeMap" : null,
+    "parameterValues" : { }
+  },
+  "isInternal" : false,
+  "isVisibleInCatalog" : true,
+  "resourceSyncProfileId" : null
+}

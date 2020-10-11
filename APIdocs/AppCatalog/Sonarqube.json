@@ -1,0 +1,74 @@
+{
+  "uuid" : "c140ce72-6135-4c95-b845-dff48895c59f",
+  "name" : "Sonarqube",
+  "description" : "Sonarqube",
+  "provisioningAdapter" : null,
+  "icon" : null,
+  "iconURL" : null,
+  "packageVersion" : "1.0",
+  "productVersion" : null,
+  "authInfo" : {
+    "type" : "Saml20",
+    "recipientName" : "https://sonarqube.{HOST}/oauth2/callback/saml",
+    "audience" : "sonarqube.{HOST}",
+    "validityTimeSeconds" : 200,
+    "signingCert" : null,
+    "parameters" : [ ],
+    "attributes" : [ {
+      "name" : "Login",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "Login",
+      "value" : "${user.userName}"
+    }, {
+      "name" : "Name",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "Name",
+      "value" : "${user.firstName} ${user.lastName}"
+    }, {
+      "name" : "Email",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "Email",
+      "value" : "${user.email}"
+    }, {
+      "name" : "Groups",
+      "nameFormat" : "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
+      "nameSpace" : "Groups",
+      "value" : "${groupNames}"
+    } ],
+    "nameIdFormat" : "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+    "nameId" : "${user.userName}",
+    "nameIdClaimTransformation" : null,
+    "assertionConsumerServiceUrl" : "https://sonarqube.{HOST}/oauth2/callback/saml",
+    "signatureAlgorithm" : "SHA1withRSA",
+    "digestAlgorithm" : "SHA1",
+    "claimTransformations" : null,
+    "configureAs" : "manual",
+    "metadata" : null,
+    "metadataUrl" : null,
+    "includeDestination" : true,
+    "signAssertion" : false,
+    "signResponse" : true,
+    "encryptAssertion" : false,
+    "includeSigningCert" : false,
+    "loginRedirectionUrl" : null,
+    "relayState" : null,
+    "relayStateParamName" : null,
+    "encodeRelayStateValueFromParam" : false,
+    "encryptionCerts" : null,
+    "allowApiAccess" : false,
+    "credentialCheckType" : "PerAppPassword",
+    "proxyCount" : null,
+    "returnFailureResponse" : false,
+    "deviceSsoResponse" : false,
+    "enableForceAuthnRequest" : false
+  },
+  "iconHash" : null,
+  "isMandatory" : false,
+  "resourceConfiguration" : {
+    "applicationAttributeMap" : null,
+    "parameterValues" : { }
+  },
+  "isInternal" : false,
+  "isVisibleInCatalog" : true,
+  "resourceSyncProfileId" : null
+}
