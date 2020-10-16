@@ -4,6 +4,22 @@
 PowerShell module to interact with VMware WorkSpace One Access API.  
 *VMware Workspace one access (WS1Access) or VMware Identiry Manager (VIDM)*  
 
+## Basic Usage
+
+*Most of the functions could be executed as is outside the module scope.*
+Place the *WS1AccessAdminAPI* module folder to:  
+`$home\Documents\WindowsPowerShell\Modules` OR `$pshome\Modules` (Win&Linux)  
+
+@Docs: <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-7#how-to-install-a-module>  
+
+```Powershell
+Import-Module -Name WS1AccessAdminAPI
+Get-Module -Name WS1AccessAdminAPI
+Get-Command -Module WS1AccessAdminAPI
+```
+
+*More usage examples could be found under 'Examples' folder.*
+
 ## WS1Access Configuration
 
 App Registration: One time only  
@@ -20,21 +36,6 @@ App Registration: One time only
 
 ![alt text](https://raw.githubusercontent.com/wiki/vmware/idm/images/OAuth2CredClient.png)  
 @*Source*: <https://github.com/vmware/idm/wiki/Integrating-Client-Credentials-app-with-OAuth2#app-registration-one-time-only>  
-
-## Usage
-
-Place the *WS1AccessAdminAPI* module folder to:  
-`$home\Documents\WindowsPowerShell\Modules` OR `$pshome\Modules` (Win&Linux)  
-
-@Docs: <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-7#how-to-install-a-module>  
-
-```Powershell
-Import-Module -Name WS1AccessAdminAPI
-Get-Module -Name WS1AccessAdminAPI
-Get-Command -Module WS1AccessAdminAPI
-```
-
-*More usage examples could be found under 'Examples' folder.*
 
 # Suggestions and feedback
 

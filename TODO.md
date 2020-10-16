@@ -9,3 +9,4 @@
 - [ ] Add Pester tests.
 - [ ] Intefrate sandbox env with Active Directory.
 - [ ] Report login history for user (last account activity).
+- [ ] Configure PS DSC.
