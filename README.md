@@ -10,6 +10,7 @@ PowerShell module to interact with VMware WorkSpace One Access API.
 
 ```Powershell
 Install-Module WS1AccessAdminAPI -Force
+Import-Module WS1AccessAdminAPI -Force
 Get-Module -Name WS1AccessAdminAPI
 Get-Command -Module WS1AccessAdminAPI
 Get-WS1LoginSessionToken -Tenant "example.vmware.com" -LocalAdminUSR "Admin" -LocalAdminPWD "P@ssw0rd"
