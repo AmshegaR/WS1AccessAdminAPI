@@ -8,9 +8,16 @@ PowerShell module to interact with VMware WorkSpace One Access API.
 
 ## Basic Usage
 
+```Powershell
+Install-Module WS1AccessAdminAPI -Force
+Get-Module -Name WS1AccessAdminAPI
+Get-Command -Module WS1AccessAdminAPI
+Get-WS1LoginSessionToken -Tenant "example.vmware.com" -LocalAdminUSR "Admin" -LocalAdminPWD "P@ssw0rd"
+```
+  
 ![BasicUsageEx](BasicUsageEx.gif)  
 
-*Most of the functions could be executed as is outside the module scope.*
+*Most of the functions could be executed as is outside the module scope.*  
 Place the *WS1AccessAdminAPI* module folder to:  
 `$home\Documents\WindowsPowerShell\Modules` OR `$pshome\Modules` (Win&Linux)  
 
@@ -21,7 +28,7 @@ Import-Module -Name WS1AccessAdminAPI
 Get-Module -Name WS1AccessAdminAPI
 Get-Command -Module WS1AccessAdminAPI
 ```
-
+  
 *More usage examples could be found under 'Examples' folder.*
 
 ## WS1Access Configuration
@@ -45,4 +52,5 @@ App Registration: One time only
 
 If you have any idea or suggestion - please add a github issue.  
 Contribution is welcome.  
-WS1Access API has poor documentation, plenty of the functionality was collected by pieces from external resources (e.g forums, repos, Admin UI etc).  
+WS1Access API has poor documentation,  
+plenty of the functionality was collected by pieces from external resources (e.g forums, repos, Admin UI etc).  
