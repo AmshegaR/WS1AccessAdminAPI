@@ -6,6 +6,8 @@ PowerShell module to interact with VMware WorkSpace One Access API.
 
 ## Basic Usage
 
+![BasicUsageEx](BasicUsageEx.gif)  
+
 *Most of the functions could be executed as is outside the module scope.*
 Place the *WS1AccessAdminAPI* module folder to:  
 `$home\Documents\WindowsPowerShell\Modules` OR `$pshome\Modules` (Win&Linux)  
