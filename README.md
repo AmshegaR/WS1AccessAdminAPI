@@ -1,6 +1,8 @@
 
 # WS1AccessAdminAPI
 
+![PowerShell Gallery Version](https://img.shields.io/powershellgallery/v/WS1AccessAdminAPI)
+
 PowerShell module to interact with VMware WorkSpace One Access API.  
 *VMware Workspace one access (WS1Access) or VMware Identiry Manager (VIDM)*  
 
