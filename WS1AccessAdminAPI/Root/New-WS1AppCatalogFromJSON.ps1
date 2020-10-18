@@ -26,9 +26,9 @@ $NewWebLink = @'
     }
 }
 '@
-New-WS1LocalUserFromJson -Tenant "Example.vmware.com" -Token $Token -JSON $NewWebLink -AppType "WebAppLink"
+New-WS1AppCatalogFromJSON -Tenant "Example.vmware.com" -Token $Token -JSON $NewWebLink -AppType "WebAppLink"
 #>
-function New-WS1LocalUserFromJson {
+function New-WS1AppCatalogFromJSON {
     [cmdletbinding()]
     param(
        [Parameter(Mandatory=$true)][string]$Tenant,

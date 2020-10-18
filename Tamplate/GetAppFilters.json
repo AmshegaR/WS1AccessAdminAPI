@@ -1,0 +1,17 @@
+{
+    "includeAttributes": [
+      "labels",
+      "uiCapabilities",
+      "authInfo"
+    ],
+    "includeTypes": [
+      "Saml11",
+      "Saml20",
+      "WSFed12",
+      "WebAppLink",
+      "AnyApp"
+    ],
+    "nameFilter": "",
+    "categories": [],
+    "rootResource": false
+}

@@ -23,13 +23,6 @@ Place the *WS1AccessAdminAPI* module folder to:
 `$home\Documents\WindowsPowerShell\Modules` OR `$pshome\Modules` (Win&Linux)  
 
 @Docs: <https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_modules?view=powershell-7#how-to-install-a-module>  
-
-```Powershell
-Import-Module -Name WS1AccessAdminAPI
-Get-Module -Name WS1AccessAdminAPI
-Get-Command -Module WS1AccessAdminAPI
-```
-  
 *More usage examples could be found under 'Examples' folder.*
 
 ## WS1Access Configuration
