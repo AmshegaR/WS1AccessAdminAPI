@@ -43,3 +43,4 @@ function Get-WS1AccessToken {
     $Token | Add-Member -NotePropertyMembers @{Tenant="$($Tenant)"}
     Return $Token
 }
+

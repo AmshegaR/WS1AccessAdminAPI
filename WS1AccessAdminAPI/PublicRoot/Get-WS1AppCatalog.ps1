@@ -47,7 +47,7 @@ function Get-WS1AppCatalog {
         Write-Debug $($IRMParams | out-string)
         $AppCatalog =  Invoke-RestMethod @IRMParams
         If($AppCatalog.items){
-            Return $AppCatalog
+            Return $AppCatalog.items
         }
         Write-Warning "Application not found"
         Return $false
