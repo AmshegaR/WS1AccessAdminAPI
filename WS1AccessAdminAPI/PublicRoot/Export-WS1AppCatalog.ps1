@@ -28,8 +28,8 @@ Function Export-WS1AppCatalog{
     param(
         [Parameter(Mandatory=$true)][string]$Tenant,
         [Parameter(Mandatory=$true)][string]$Token,
-        [Parameter(Mandatory=$true,ValueFromPipeline=$true)][string]$AppUUID,
-        [Parameter(Mandatory=$true)][string]$SaveTo
+        [Parameter(Mandatory=$true,ValueFromPipeline=$true)][Guid]$AppUUID,
+        [Parameter(Mandatory=$true)][System.IO.FileInfo]$SaveTo
     )
     begin {
         $Header = @{
