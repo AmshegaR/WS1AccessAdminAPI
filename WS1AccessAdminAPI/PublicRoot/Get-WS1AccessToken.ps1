@@ -13,17 +13,32 @@ Mandatory: Client Identifier
 Mandatory: Client Shared secret
 
 .EXAMPLE
-Get-ws1aAccessToken -Tenant "VIDMTenant.Domain.com" -ClientID "API-Admin" -ClientSecret "QWrfdghGTgt4GGJj5Hh"
+Get-WS1AccessToken -Tenant "VIDMTenant.Domain.com" -ClientID "API-Admin" -ClientSecret "QWrfdghGTgt4GGJj5Hh" -SetToken
+
+.EXAMPLE
+$Token = Get-WS1AccessToken -Tenant $tenant -ClientID $clientID -ClientSecret $secret
+Write-Host ($Token.Data | Format-List | Out-String)
+
+.EXAMPLE
+$Params = @{
+    Tenant = 'tenant01.example.com'
+    ClientID = 'Example01'
+    ClientSecret = 'qwerty'
+    SetToken = $true
+}
+$Token = Get-WS1AccessToken @Params
+Write-Host ($Token | Format-List | Out-String)
 #>
 function Get-WS1AccessToken {
     [cmdletbinding()]
     param(
        [Parameter(Mandatory=$true)][string]$Tenant,
        [Parameter(Mandatory=$true)][string]$ClientID,
-       [Parameter(Mandatory=$true)][string]$ClientSecret
+       [Parameter(Mandatory=$true)][string]$ClientSecret,
+       [switch]$SetToken
     )
-    
     $URI = "https://$($Tenant)/SAAS/auth/oauthtoken"
+    #Concatinate ClientID & ClientSecret and convert to Base64
     $SCclient =[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("$($ClientID):$($ClientSecret)"))
     $Header = @{
         authorization = 'Basic ' + $SCclient
@@ -39,8 +54,15 @@ function Get-WS1AccessToken {
         URI = $URI
     }
     Write-Debug $($IRMParams | out-string)
-    $Token = Invoke-RestMethod @IRMParams
-    $Token | Add-Member -NotePropertyMembers @{Tenant="$($Tenant)"}
-    Return $Token
+    try {
+        $Token = Invoke-RestMethod @IRMParams
+        $Token | Add-Member -NotePropertyMembers @{Tenant="$($Tenant)"}
+        If($SetToken.IsPresent){ Set-WS1SessionToken -Token $Token | Out-Null }
+        $Result = @{ "Status" = $True; "Data" = $Token }
+    }
+    catch {
+        Write-Verbose "$_.Exception.Message"
+        $Result = @{ "Status" = $False; "Message" = $Error[0].Exception.Message }
+    }
+    Return New-Object psobject -Property $Result
 }
-
