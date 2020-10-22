@@ -1,10 +1,10 @@
 
 # VMware WorkSpace One Access (VIDM) OIDC Example
 
-Swagger/Open API specification: <https://vdc-repo.vmware.com/raw.githubusercontent.com/vmware/idm/master/apidocs/swagger.json>
-Docs: <https://github.com/vmware/idm/wiki/Integrating-Webapp-with-OAuth2>
+Swagger/Open API specification: <https://vdc-repo.vmware.com/raw.githubusercontent.com/vmware/idm/master/apidocs/swagger.json>  
+Docs: <https://github.com/vmware/idm/wiki/Integrating-Webapp-with-OAuth2>  
 
-## Application Catalog configuration
+## Application Catalog configuration  
 
 ```json
 {
@@ -36,22 +36,22 @@ Docs: <https://github.com/vmware/idm/wiki/Integrating-Webapp-with-OAuth2>
 }
 ```
 
-## Remote App Access
+## Remote App Access  
 
-**CLIENT INFORMATION**: `Client ID - MyOIDCTester`
-*CLIENT CONFIGURATION*
-**Redirect URI**: `http://10.0.0.9:3000`
-**Token Type**: `Bearer`
-**Grant Types**: `Authorization Code, Refresh Token`
-*User GrantClient is given automatic access (users are not prompted)*
-*Access Token Time-To-Live (TTL)3 hour(s)*
-*Refresh Token Time-To-Live (TTL)3 month(s) (1 month is 30 days)*
-*Idle Token Time-to-Live (TTL)4 day(s)*
-**Scope**: `email profile user openid`
+**CLIENT INFORMATION**: `Client ID - MyOIDCTester`  
+*CLIENT CONFIGURATION*  
+**Redirect URI**: `http://10.0.0.9:3000`  
+**Token Type**: `Bearer`  
+**Grant Types**: `Authorization Code, Refresh Token`  
+*User GrantClient is given automatic access (users are not prompted)*  
+*Access Token Time-To-Live (TTL)3 hour(s)*  
+*Refresh Token Time-To-Live (TTL)3 month(s) (1 month is 30 days)*  
+*Idle Token Time-to-Live (TTL)4 day(s)*  
+**Scope**: `email profile user openid`  
 
-## OIDC Discovery
+## OIDC Discovery  
 
-**GET**: <https://m646484007.vmwareidentity.de/SAAS/auth/.well-known/openid-configuration>
+**GET**: <https://m646484007.vmwareidentity.de/SAAS/auth/.well-known/openid-configuration>  
 
 ```json
 {
@@ -121,29 +121,29 @@ Docs: <https://github.com/vmware/idm/wiki/Integrating-Webapp-with-OAuth2>
 }
 ```
 
-## Request Authorization Code
+## Request Authorization Code  
 
-**GET**: <https://m646484007.vmwareidentity.de/acs/authorize?>
-**state**=`35db1520-cece-4f64-9e13-77968f99fd28&`
-**response_type**=`code&`
-**client_id**=`MyOIDCTester&`
-**redirect_uri**=`http://10.0.0.9:3000&`
-**scope**=`email profile user openid`
+**GET**: <https://m646484007.vmwareidentity.de/acs/authorize?>  
+**state**=`35db1520-cece-4f64-9e13-77968f99fd28&`  
+**response_type**=`code&`  
+**client_id**=`MyOIDCTester&`  
+**redirect_uri**=`http://10.0.0.9:3000&`  
+**scope**=`email profile user openid`  
 
 ## Exchange Authorization Code for Access Token
 
-**POST**: <https://m646484007.vmwareidentity.de/acs/token>
-*Message Body:*
-**grant_type**=`authorization_code&`
-**code**=`MjgxMDFiZjMtZWQyMC00OWY0LTg5YzEtZjM1ZjM0N2ZiY2U0I1JCZXlzMFRDUUJqVkhnbklnblQ5&`
-**client_id**=`MyOIDCTester&`
-**redirect_uri**=`http://10.0.0.9:3000&`
-**scope**=`email+profile+user+openid`
+**POST**: <https://m646484007.vmwareidentity.de/acs/token>  
+*Message Body:*  
+**grant_type**=`authorization_code&`  
+**code**=`MjgxMDFiZjMtZWQyMC00OWY0LTg5YzEtZjM1ZjM0N2ZiY2U0I1JCZXlzMFRDUUJqVkhnbklnblQ5&`  
+**client_id**=`MyOIDCTester&`  
+**redirect_uri**=`http://10.0.0.9:3000&`  
+**scope**=`email+profile+user+openid`  
 
-**Result**:
-**access_token**: `eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJleHAiOjE2MDE3MjYyMjgsImlhdCI6MTYwMTcxNTQyOCwic3ViIjoiZmY0NThhZDItNmJiMy00MmNiLTlmOWMtY2EwNzE0Y2NiOTk1IiwiYXV0aF90aW1lIjoxNjAxNzE1NDAzLCJzY3AiOiJvcGVuaWQgcHJvZmlsZSB1c2VyIGVtYWlsIiwiZW1sIjoiZ3Jpc2hAbWFpbC5jb20iLCJjdHgiOiJbe1wibXRkXCI6XCJ1cm46dm13YXJlOm5hbWVzOmFjOmNsYXNzZXM6TG9jYWxQYXNzd29yZEF1dGhcIixcImlhdFwiOjE2MDE3MTU0MDMsXCJ0eXBcIjpcIjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAxNFwiLFwiaWRtXCI6dHJ1ZX1dIiwiaXNzIjoiaHR0cHM6Ly9tNjQ2NDg0MDA3LnZtd2FyZWlkZW50aXR5LmRlL1NBQVMvYXV0aCIsInBpZCI6ImM5NzAzMTg3LTk2NDItNDc5My1iNDk1LTc2ZWE1MWNmZmQzYiIsInBybiI6ImdyaXNoQE02NDY0ODQwMDciLCJhdWQiOiJodHRwczovL202NDY0ODQwMDcudm13YXJlaWRlbnRpdHkuZGUvU0FBUy9hdXRoL29hdXRodG9rZW4iLCJ3aWQiOiIiLCJpZHAiOiIiLCJ1c2VyX2lkIjoiMzEwOTExMSIsImRvbWFpbiI6IlN5c3RlbSBEb21haW4iLCJwcm5fdHlwZSI6IlVTRVIiLCJqdGkiOiIwMDA2MzE3NC1kYzAwLTRhM2ItYjhmNy1lZjc2ZDBiOTE4YWYiLCJjaWQiOiJNeU9JRENUZXN0ZXIifQ.nnmXpRPGHvALkbdJNjIFrVLBOJylf_k_imW1QdB-0y4wv_E94wcaaPq7O6MfgN8WpvAW9uKwGrWDIpPeCwitX_KckV8l8mkPDyrKbZBErTV57voqhtp2YqgGP40yNZXDSU2Ak3iuC9lmIx-1nU3Gft84Bwkpq2d5J5r5kocvd14`
-**refresh_token**: `NGYxNTg5ODAtY2E5NS00Njg2LWE3NGItOTljNTEyZDMyNDhmI0hKYXYwbGRzSFZXTWg0S01HMWlQY0JKWnZyZTJnaUY0b3hrdk8zVlpJRWJwUEtkS0tvZzNtamRVVk9ZQ1NDcHIjMTYwMTcxNTQyOA`
-**id_token**: `eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE1OTk2NDA1NzMifQ.eyJub25jZSI6Ijc0MDFiODk1LTM5NjMtNDhiOC1hN2FhLThkMTNiZDQ4NzI4YiIsImVtYWlsIjoiZ3Jpc2hAbWFpbC5jb20iLCJleHAiOjE2MDE3MjYyMjgsImlhdCI6MTYwMTcxNTQyOCwic3ViIjoiZ3Jpc2hATTY0NjQ4NDAwNyIsImlzcyI6Imh0dHBzOi8vbTY0NjQ4NDAwNy52bXdhcmVpZGVudGl0eS5kZS9TQUFTL2F1dGgiLCJhdWQiOlsiTXlPSURDVGVzdGVyIl0sImF1dGhfdGltZSI6MTYwMTcxNTQwMywiYXpwIjoiTXlPSURDVGVzdGVyIiwiYXRfaGFzaCI6Ik51QndjVWFUVnpXOUNuYTF6X2ljOUEiLCJjX2hhc2giOiIzS1pPQm45UnFDTzdsQ1YyWDhpUmVRIiwibmFtZSI6IkdyaXNoYSBLIiwiZ2l2ZW5fbmFtZSI6IkdyaXNoYSIsImZhbWlseV9uYW1lIjoiSyIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJ1cGRhdGVkX2F0IjoxNjAxMjk1Nzg1ODU3fQ.mFoV9g2DFrgxcdeEHT4O9Aulq6_IM7BBViPz4z1DJrbgVZv6Y62FQrhE1nO9gmk5lWWNTYrzHL7WLzQovS_vpdOv38n7sR4kd7KSg0ROGvnAiiaB3SVZ57kL1vpu1gAtYblFI6KZRqseZQ_mDkHMJNW2V_uFKU_6RBDHc8dG_so`
+**Result**:  
+**access_token**: `eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJleHAiOjE2MDE3MjYyMjgsImlhdCI6MTYwMTcxNTQyOCwic3ViIjoiZmY0NThhZDItNmJiMy00MmNiLTlmOWMtY2EwNzE0Y2NiOTk1IiwiYXV0aF90aW1lIjoxNjAxNzE1NDAzLCJzY3AiOiJvcGVuaWQgcHJvZmlsZSB1c2VyIGVtYWlsIiwiZW1sIjoiZ3Jpc2hAbWFpbC5jb20iLCJjdHgiOiJbe1wibXRkXCI6XCJ1cm46dm13YXJlOm5hbWVzOmFjOmNsYXNzZXM6TG9jYWxQYXNzd29yZEF1dGhcIixcImlhdFwiOjE2MDE3MTU0MDMsXCJ0eXBcIjpcIjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAxNFwiLFwiaWRtXCI6dHJ1ZX1dIiwiaXNzIjoiaHR0cHM6Ly9tNjQ2NDg0MDA3LnZtd2FyZWlkZW50aXR5LmRlL1NBQVMvYXV0aCIsInBpZCI6ImM5NzAzMTg3LTk2NDItNDc5My1iNDk1LTc2ZWE1MWNmZmQzYiIsInBybiI6ImdyaXNoQE02NDY0ODQwMDciLCJhdWQiOiJodHRwczovL202NDY0ODQwMDcudm13YXJlaWRlbnRpdHkuZGUvU0FBUy9hdXRoL29hdXRodG9rZW4iLCJ3aWQiOiIiLCJpZHAiOiIiLCJ1c2VyX2lkIjoiMzEwOTExMSIsImRvbWFpbiI6IlN5c3RlbSBEb21haW4iLCJwcm5fdHlwZSI6IlVTRVIiLCJqdGkiOiIwMDA2MzE3NC1kYzAwLTRhM2ItYjhmNy1lZjc2ZDBiOTE4YWYiLCJjaWQiOiJNeU9JRENUZXN0ZXIifQ.nnmXpRPGHvALkbdJNjIFrVLBOJylf_k_imW1QdB-0y4wv_E94wcaaPq7O6MfgN8WpvAW9uKwGrWDIpPeCwitX_KckV8l8mkPDyrKbZBErTV57voqhtp2YqgGP40yNZXDSU2Ak3iuC9lmIx-1nU3Gft84Bwkpq2d5J5r5kocvd14`  
+**refresh_token**: `NGYxNTg5ODAtY2E5NS00Njg2LWE3NGItOTljNTEyZDMyNDhmI0hKYXYwbGRzSFZXTWg0S01HMWlQY0JKWnZyZTJnaUY0b3hrdk8zVlpJRWJwUEtkS0tvZzNtamRVVk9ZQ1NDcHIjMTYwMTcxNTQyOA`  
+**id_token**: `eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjE1OTk2NDA1NzMifQ.eyJub25jZSI6Ijc0MDFiODk1LTM5NjMtNDhiOC1hN2FhLThkMTNiZDQ4NzI4YiIsImVtYWlsIjoiZ3Jpc2hAbWFpbC5jb20iLCJleHAiOjE2MDE3MjYyMjgsImlhdCI6MTYwMTcxNTQyOCwic3ViIjoiZ3Jpc2hATTY0NjQ4NDAwNyIsImlzcyI6Imh0dHBzOi8vbTY0NjQ4NDAwNy52bXdhcmVpZGVudGl0eS5kZS9TQUFTL2F1dGgiLCJhdWQiOlsiTXlPSURDVGVzdGVyIl0sImF1dGhfdGltZSI6MTYwMTcxNTQwMywiYXpwIjoiTXlPSURDVGVzdGVyIiwiYXRfaGFzaCI6Ik51QndjVWFUVnpXOUNuYTF6X2ljOUEiLCJjX2hhc2giOiIzS1pPQm45UnFDTzdsQ1YyWDhpUmVRIiwibmFtZSI6IkdyaXNoYSBLIiwiZ2l2ZW5fbmFtZSI6IkdyaXNoYSIsImZhbWlseV9uYW1lIjoiSyIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJ1cGRhdGVkX2F0IjoxNjAxMjk1Nzg1ODU3fQ.mFoV9g2DFrgxcdeEHT4O9Aulq6_IM7BBViPz4z1DJrbgVZv6Y62FQrhE1nO9gmk5lWWNTYrzHL7WLzQovS_vpdOv38n7sR4kd7KSg0ROGvnAiiaB3SVZ57kL1vpu1gAtYblFI6KZRqseZQ_mDkHMJNW2V_uFKU_6RBDHc8dG_so`  
 
 ## Decode JWT access_token
 
@@ -207,16 +207,16 @@ Docs: <https://github.com/vmware/idm/wiki/Integrating-Webapp-with-OAuth2>
 
 ## Validate Access Token
 
-**GET**: <https://m646484007.vmwareidentity.de/SAAS/API/1.0/REST/auth/token?attribute=isValid>
-**Authorization**: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJleHAiOjE2MDE3MjYyMjgsImlhdCI6MTYwMTcxNTQyOCwic3ViIjoiZmY0NThhZDItNmJiMy00MmNiLTlmOWMtY2EwNzE0Y2NiOTk1IiwiYXV0aF90aW1lIjoxNjAxNzE1NDAzLCJzY3AiOiJvcGVuaWQgcHJvZmlsZSB1c2VyIGVtYWlsIiwiZW1sIjoiZ3Jpc2hAbWFpbC5jb20iLCJjdHgiOiJbe1wibXRkXCI6XCJ1cm46dm13YXJlOm5hbWVzOmFjOmNsYXNzZXM6TG9jYWxQYXNzd29yZEF1dGhcIixcImlhdFwiOjE2MDE3MTU0MDMsXCJ0eXBcIjpcIjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAxNFwiLFwiaWRtXCI6dHJ1ZX1dIiwiaXNzIjoiaHR0cHM6Ly9tNjQ2NDg0MDA3LnZtd2FyZWlkZW50aXR5LmRlL1NBQVMvYXV0aCIsInBpZCI6ImM5NzAzMTg3LTk2NDItNDc5My1iNDk1LTc2ZWE1MWNmZmQzYiIsInBybiI6ImdyaXNoQE02NDY0ODQwMDciLCJhdWQiOiJodHRwczovL202NDY0ODQwMDcudm13YXJlaWRlbnRpdHkuZGUvU0FBUy9hdXRoL29hdXRodG9rZW4iLCJ3aWQiOiIiLCJpZHAiOiIiLCJ1c2VyX2lkIjoiMzEwOTExMSIsImRvbWFpbiI6IlN5c3RlbSBEb21haW4iLCJwcm5fdHlwZSI6IlVTRVIiLCJqdGkiOiIwMDA2MzE3NC1kYzAwLTRhM2ItYjhmNy1lZjc2ZDBiOTE4YWYiLCJjaWQiOiJNeU9JRENUZXN0ZXIifQ.nnmXpRPGHvALkbdJNjIFrVLBOJylf_k_imW1QdB-0y4wv_E94wcaaPq7O6MfgN8WpvAW9uKwGrWDIpPeCwitX_KckV8l8mkPDyrKbZBErTV57voqhtp2YqgGP40yNZXDSU2Ak3iuC9lmIx-1nU3Gft84Bwkpq2d5J5r5kocvd14`
+**GET**: <https://m646484007.vmwareidentity.de/SAAS/API/1.0/REST/auth/token?attribute=isValid>  
+**Authorization**: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJleHAiOjE2MDE3MjYyMjgsImlhdCI6MTYwMTcxNTQyOCwic3ViIjoiZmY0NThhZDItNmJiMy00MmNiLTlmOWMtY2EwNzE0Y2NiOTk1IiwiYXV0aF90aW1lIjoxNjAxNzE1NDAzLCJzY3AiOiJvcGVuaWQgcHJvZmlsZSB1c2VyIGVtYWlsIiwiZW1sIjoiZ3Jpc2hAbWFpbC5jb20iLCJjdHgiOiJbe1wibXRkXCI6XCJ1cm46dm13YXJlOm5hbWVzOmFjOmNsYXNzZXM6TG9jYWxQYXNzd29yZEF1dGhcIixcImlhdFwiOjE2MDE3MTU0MDMsXCJ0eXBcIjpcIjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAxNFwiLFwiaWRtXCI6dHJ1ZX1dIiwiaXNzIjoiaHR0cHM6Ly9tNjQ2NDg0MDA3LnZtd2FyZWlkZW50aXR5LmRlL1NBQVMvYXV0aCIsInBpZCI6ImM5NzAzMTg3LTk2NDItNDc5My1iNDk1LTc2ZWE1MWNmZmQzYiIsInBybiI6ImdyaXNoQE02NDY0ODQwMDciLCJhdWQiOiJodHRwczovL202NDY0ODQwMDcudm13YXJlaWRlbnRpdHkuZGUvU0FBUy9hdXRoL29hdXRodG9rZW4iLCJ3aWQiOiIiLCJpZHAiOiIiLCJ1c2VyX2lkIjoiMzEwOTExMSIsImRvbWFpbiI6IlN5c3RlbSBEb21haW4iLCJwcm5fdHlwZSI6IlVTRVIiLCJqdGkiOiIwMDA2MzE3NC1kYzAwLTRhM2ItYjhmNy1lZjc2ZDBiOTE4YWYiLCJjaWQiOiJNeU9JRENUZXN0ZXIifQ.nnmXpRPGHvALkbdJNjIFrVLBOJylf_k_imW1QdB-0y4wv_E94wcaaPq7O6MfgN8WpvAW9uKwGrWDIpPeCwitX_KckV8l8mkPDyrKbZBErTV57voqhtp2YqgGP40yNZXDSU2Ak3iuC9lmIx-1nU3Gft84Bwkpq2d5J5r5kocvd14`  
 
-**Result**: `"True"`
+**Result**: `"True"`  
 
 ## Validate JWT signature
 
-**Get**: `https://m646484007.vmwareidentity.de/SAAS/API/1.0/REST/auth/token?attribute=publicKey`
+**Get**: `https://m646484007.vmwareidentity.de/SAAS/API/1.0/REST/auth/token?attribute=publicKey`  
 
-**Result**:
+**Result**:  
 
 ```json
 {
@@ -229,8 +229,8 @@ Docs: <https://github.com/vmware/idm/wiki/Integrating-Webapp-with-OAuth2>
 
 ## UserInfo Endpoint
 
-**GET**: <https://m646484007.vmwareidentity.de/acs/userinfo>
-**Authorization**=`Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJleHAiOjE2MDE3MjYyMjgsImlhdCI6MTYwMTcxNTQyOCwic3ViIjoiZmY0NThhZDItNmJiMy00MmNiLTlmOWMtY2EwNzE0Y2NiOTk1IiwiYXV0aF90aW1lIjoxNjAxNzE1NDAzLCJzY3AiOiJvcGVuaWQgcHJvZmlsZSB1c2VyIGVtYWlsIiwiZW1sIjoiZ3Jpc2hAbWFpbC5jb20iLCJjdHgiOiJbe1wibXRkXCI6XCJ1cm46dm13YXJlOm5hbWVzOmFjOmNsYXNzZXM6TG9jYWxQYXNzd29yZEF1dGhcIixcImlhdFwiOjE2MDE3MTU0MDMsXCJ0eXBcIjpcIjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAxNFwiLFwiaWRtXCI6dHJ1ZX1dIiwiaXNzIjoiaHR0cHM6Ly9tNjQ2NDg0MDA3LnZtd2FyZWlkZW50aXR5LmRlL1NBQVMvYXV0aCIsInBpZCI6ImM5NzAzMTg3LTk2NDItNDc5My1iNDk1LTc2ZWE1MWNmZmQzYiIsInBybiI6ImdyaXNoQE02NDY0ODQwMDciLCJhdWQiOiJodHRwczovL202NDY0ODQwMDcudm13YXJlaWRlbnRpdHkuZGUvU0FBUy9hdXRoL29hdXRodG9rZW4iLCJ3aWQiOiIiLCJpZHAiOiIiLCJ1c2VyX2lkIjoiMzEwOTExMSIsImRvbWFpbiI6IlN5c3RlbSBEb21haW4iLCJwcm5fdHlwZSI6IlVTRVIiLCJqdGkiOiIwMDA2MzE3NC1kYzAwLTRhM2ItYjhmNy1lZjc2ZDBiOTE4YWYiLCJjaWQiOiJNeU9JRENUZXN0ZXIifQ.nnmXpRPGHvALkbdJNjIFrVLBOJylf_k_imW1QdB-0y4wv_E94wcaaPq7O6MfgN8WpvAW9uKwGrWDIpPeCwitX_KckV8l8mkPDyrKbZBErTV57voqhtp2YqgGP40yNZXDSU2Ak3iuC9lmIx-1nU3Gft84Bwkpq2d5J5r5kocvd14`
+**GET**: <https://m646484007.vmwareidentity.de/acs/userinfo>  
+**Authorization**=`Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJleHAiOjE2MDE3MjYyMjgsImlhdCI6MTYwMTcxNTQyOCwic3ViIjoiZmY0NThhZDItNmJiMy00MmNiLTlmOWMtY2EwNzE0Y2NiOTk1IiwiYXV0aF90aW1lIjoxNjAxNzE1NDAzLCJzY3AiOiJvcGVuaWQgcHJvZmlsZSB1c2VyIGVtYWlsIiwiZW1sIjoiZ3Jpc2hAbWFpbC5jb20iLCJjdHgiOiJbe1wibXRkXCI6XCJ1cm46dm13YXJlOm5hbWVzOmFjOmNsYXNzZXM6TG9jYWxQYXNzd29yZEF1dGhcIixcImlhdFwiOjE2MDE3MTU0MDMsXCJ0eXBcIjpcIjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAxNFwiLFwiaWRtXCI6dHJ1ZX1dIiwiaXNzIjoiaHR0cHM6Ly9tNjQ2NDg0MDA3LnZtd2FyZWlkZW50aXR5LmRlL1NBQVMvYXV0aCIsInBpZCI6ImM5NzAzMTg3LTk2NDItNDc5My1iNDk1LTc2ZWE1MWNmZmQzYiIsInBybiI6ImdyaXNoQE02NDY0ODQwMDciLCJhdWQiOiJodHRwczovL202NDY0ODQwMDcudm13YXJlaWRlbnRpdHkuZGUvU0FBUy9hdXRoL29hdXRodG9rZW4iLCJ3aWQiOiIiLCJpZHAiOiIiLCJ1c2VyX2lkIjoiMzEwOTExMSIsImRvbWFpbiI6IlN5c3RlbSBEb21haW4iLCJwcm5fdHlwZSI6IlVTRVIiLCJqdGkiOiIwMDA2MzE3NC1kYzAwLTRhM2ItYjhmNy1lZjc2ZDBiOTE4YWYiLCJjaWQiOiJNeU9JRENUZXN0ZXIifQ.nnmXpRPGHvALkbdJNjIFrVLBOJylf_k_imW1QdB-0y4wv_E94wcaaPq7O6MfgN8WpvAW9uKwGrWDIpPeCwitX_KckV8l8mkPDyrKbZBErTV57voqhtp2YqgGP40yNZXDSU2Ak3iuC9lmIx-1nU3Gft84Bwkpq2d5J5r5kocvd14`  
 
 **Result**:  
 
@@ -249,10 +249,10 @@ Docs: <https://github.com/vmware/idm/wiki/Integrating-Webapp-with-OAuth2>
 
 ## SCIM Logged-in User Info
 
-**GET**: <https://m646484007.vmwareidentity.de/SAAS/jersey/manager/api/scim/Me>
-**Authorization**=`Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJleHAiOjE2MDE3MjYyMjgsImlhdCI6MTYwMTcxNTQyOCwic3ViIjoiZmY0NThhZDItNmJiMy00MmNiLTlmOWMtY2EwNzE0Y2NiOTk1IiwiYXV0aF90aW1lIjoxNjAxNzE1NDAzLCJzY3AiOiJvcGVuaWQgcHJvZmlsZSB1c2VyIGVtYWlsIiwiZW1sIjoiZ3Jpc2hAbWFpbC5jb20iLCJjdHgiOiJbe1wibXRkXCI6XCJ1cm46dm13YXJlOm5hbWVzOmFjOmNsYXNzZXM6TG9jYWxQYXNzd29yZEF1dGhcIixcImlhdFwiOjE2MDE3MTU0MDMsXCJ0eXBcIjpcIjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAxNFwiLFwiaWRtXCI6dHJ1ZX1dIiwiaXNzIjoiaHR0cHM6Ly9tNjQ2NDg0MDA3LnZtd2FyZWlkZW50aXR5LmRlL1NBQVMvYXV0aCIsInBpZCI6ImM5NzAzMTg3LTk2NDItNDc5My1iNDk1LTc2ZWE1MWNmZmQzYiIsInBybiI6ImdyaXNoQE02NDY0ODQwMDciLCJhdWQiOiJodHRwczovL202NDY0ODQwMDcudm13YXJlaWRlbnRpdHkuZGUvU0FBUy9hdXRoL29hdXRodG9rZW4iLCJ3aWQiOiIiLCJpZHAiOiIiLCJ1c2VyX2lkIjoiMzEwOTExMSIsImRvbWFpbiI6IlN5c3RlbSBEb21haW4iLCJwcm5fdHlwZSI6IlVTRVIiLCJqdGkiOiIwMDA2MzE3NC1kYzAwLTRhM2ItYjhmNy1lZjc2ZDBiOTE4YWYiLCJjaWQiOiJNeU9JRENUZXN0ZXIifQ.nnmXpRPGHvALkbdJNjIFrVLBOJylf_k_imW1QdB-0y4wv_E94wcaaPq7O6MfgN8WpvAW9uKwGrWDIpPeCwitX_KckV8l8mkPDyrKbZBErTV57voqhtp2YqgGP40yNZXDSU2Ak3iuC9lmIx-1nU3Gft84Bwkpq2d5J5r5kocvd14`
+**GET**: <https://m646484007.vmwareidentity.de/SAAS/jersey/manager/api/scim/Me>  
+**Authorization**=`Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJleHAiOjE2MDE3MjYyMjgsImlhdCI6MTYwMTcxNTQyOCwic3ViIjoiZmY0NThhZDItNmJiMy00MmNiLTlmOWMtY2EwNzE0Y2NiOTk1IiwiYXV0aF90aW1lIjoxNjAxNzE1NDAzLCJzY3AiOiJvcGVuaWQgcHJvZmlsZSB1c2VyIGVtYWlsIiwiZW1sIjoiZ3Jpc2hAbWFpbC5jb20iLCJjdHgiOiJbe1wibXRkXCI6XCJ1cm46dm13YXJlOm5hbWVzOmFjOmNsYXNzZXM6TG9jYWxQYXNzd29yZEF1dGhcIixcImlhdFwiOjE2MDE3MTU0MDMsXCJ0eXBcIjpcIjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAxNFwiLFwiaWRtXCI6dHJ1ZX1dIiwiaXNzIjoiaHR0cHM6Ly9tNjQ2NDg0MDA3LnZtd2FyZWlkZW50aXR5LmRlL1NBQVMvYXV0aCIsInBpZCI6ImM5NzAzMTg3LTk2NDItNDc5My1iNDk1LTc2ZWE1MWNmZmQzYiIsInBybiI6ImdyaXNoQE02NDY0ODQwMDciLCJhdWQiOiJodHRwczovL202NDY0ODQwMDcudm13YXJlaWRlbnRpdHkuZGUvU0FBUy9hdXRoL29hdXRodG9rZW4iLCJ3aWQiOiIiLCJpZHAiOiIiLCJ1c2VyX2lkIjoiMzEwOTExMSIsImRvbWFpbiI6IlN5c3RlbSBEb21haW4iLCJwcm5fdHlwZSI6IlVTRVIiLCJqdGkiOiIwMDA2MzE3NC1kYzAwLTRhM2ItYjhmNy1lZjc2ZDBiOTE4YWYiLCJjaWQiOiJNeU9JRENUZXN0ZXIifQ.nnmXpRPGHvALkbdJNjIFrVLBOJylf_k_imW1QdB-0y4wv_E94wcaaPq7O6MfgN8WpvAW9uKwGrWDIpPeCwitX_KckV8l8mkPDyrKbZBErTV57voqhtp2YqgGP40yNZXDSU2Ak3iuC9lmIx-1nU3Gft84Bwkpq2d5J5r5kocvd14`  
 
-**Result**:
+**Result**:  
 
 ```json
 {
