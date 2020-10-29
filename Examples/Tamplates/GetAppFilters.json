@@ -13,5 +13,6 @@
     ],
     "nameFilter": "",
     "categories": [],
-    "rootResource": false
+    "rootResource": false,
+    "includeIconBytes": true
 }

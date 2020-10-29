@@ -11,24 +11,37 @@ Mandatory: oAuth2 AccessToken
 .PARAMETER Filter
 Mandatory: HashTable format filter
 
-@{
-    "nameFilter" = "Application Name"
-    "categories" = @()
-    "includeTypes" = @("Saml11", "Saml20", "WSFed12","WebAppLink")
-    "includeAttributes" = @("labels", "uiCapabilities", "authInfo")
-    "rootResource" = "false"
-}
+.PARAMETER Property
+Select a single property to be retrived
 
+.EXAMPLE
+Get-WS1AppCatalog "TestApp"
+
+.EXAMPLE
+Get-WS1AppCatalog TestApp -property UUID | Select-Object -ExpandProperty Data
+
+.EXAMPLE
+"TestApp" | Get-WS1AppCatalog
+
+.EXAMPLE
+Get-WS1AppCatalog -Filter @{"nameFilter" = "TestApp"; "includeAttributes" = @("labels","uiCapabilities","authInfo")}
+
+.EXAMPLE
+Get-WS1AppCatalog -Filter @{"nameFilter" = "TestApp"} | Select-Object @{Label = "UUID"; Expression = {$PSItem.Data.UUID}} | Select-Object -ExpandProperty UUID
+
+.EXAMPLE
+(Get-WS1AppCatalog "TestApp").Data.UUID
 #>
 function Get-WS1AppCatalog {
-    [cmdletbinding()]
+    [CmdletBinding(DefaultParameterSetName='AppName')]
     param(
         [Parameter(Mandatory=$true)][string]$Tenant,
         [Parameter(Mandatory=$true)][string]$Token,
-        [Parameter(Mandatory=$True,ValueFromPipeline=$True)][Hashtable]$Filter
+        [Parameter(Mandatory=$true,ValueFromPipeline=$True,ParameterSetName='AppName',Position=0)][string]$AppName,
+        [Parameter(Mandatory=$true,ParameterSetName='Filter')][Hashtable]$Filter,
+        [string]$Property
     )
-    Begin{}
-    Process{
+    Begin{
         $URI = "https://$($Tenant)/SAAS/jersey/manager/api/catalogitems/search"
         $Header = @{
             Host = $Tenant
@@ -36,20 +49,43 @@ function Get-WS1AppCatalog {
             'Content-Type' = 'application/vnd.vmware.horizon.manager.catalog.search+json'
             Accept = 'application/vnd.vmware.horizon.manager.catalog.item.list+json'
         }
-        $Body = $Filter | ConvertTo-Json
-        Write-Debug "Body(Filter): $Body"
         $IRMParams = @{
-            Method = 'POST'
+            Method = "POST"
             Headers = $Header
-            Body = $Body
+            Body = $false
             URI = $URI
         }
-        Write-Debug $($IRMParams | out-string)
-        $AppCatalog =  Invoke-RestMethod @IRMParams
-        If($AppCatalog.items){
-            Return $AppCatalog.items
+    }
+    Process{
+        Write-Debug "Body(Filter): $Body"
+        Switch ($PSBoundParameters.Keys) {
+            "AppName" {
+                $Filter = @{"nameFilter" = $AppName}
+                $IRMParams.Body = $Filter | ConvertTo-Json
+                break;
+             }
+             "Filter" {
+                $IRMParams.Body = $Filter | ConvertTo-Json
+                break;
+             }
         }
-        Write-Warning "Application not found"
-        Return $false
+        Write-Debug $($IRMParams | out-string)
+        try {
+            $AppCatalog =  Invoke-RestMethod @IRMParams
+            If($AppCatalog.items){
+                $Result = @{ "Status" = $True; "Data" = $AppCatalog.items }
+            }else {
+                Write-Warning "Application not found - $($Filter.Values)"
+                $Result = @{ "Status" = $false; "Data" = "N/A" }
+            }
+        }
+        catch {
+            Write-Verbose "$_.Exception.Message"
+            $Result = @{ "Status" = $False; "Message" = $Error[0].Exception.Message }
+        }
+        If($property){
+            Return $Result.Data."$($property)"
+        }
+        Return New-Object psobject -Property $Result
     }
 }
